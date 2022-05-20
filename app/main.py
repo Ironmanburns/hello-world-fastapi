@@ -1,5 +1,6 @@
 #example 1 - basic hello world
 from fastapi import FastAPI
+import azure.functions as func
 
 app = FastAPI()
 
@@ -39,3 +40,13 @@ from fastapi import Form
 @app.post("/accounts/form")
 async def login_view(username: str = Form(...), password: str = Form(...)):
     return {"success": True}
+
+
+def main(req: func.HttpRequest, context: func.Context) -> func.HttpResponse:
+    """Wires our Azure Function with the FastAPI configuration.
+    API endpoint that lists the Environments that the authenticating
+    user owns.
+    Returns:
+        Response from the requested API request.
+    """
+    return func.AsgiMiddleware(app).handle(req, context)

@@ -1,2 +1,5 @@
 __pycache__/*
 .venv/*
+.vscode
+.python_packages
+local.settings.json
