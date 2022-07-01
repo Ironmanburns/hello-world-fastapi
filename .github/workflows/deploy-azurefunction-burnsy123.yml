@@ -43,7 +43,7 @@ jobs:
         popd
 
   deploy-to-review:
-    if: github.event.name == 'pull_request'
+    #if: github.event.name == 'pull_request'
     runs-on: ubuntu-latest  
     environment: 'Development'
     needs: build
