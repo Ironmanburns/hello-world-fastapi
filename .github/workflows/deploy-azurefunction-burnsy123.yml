@@ -1,4 +1,4 @@
-name: Azure Function Deployment
+name: Deploy Azure Function App
 
 on:
   push:
@@ -18,7 +18,7 @@ on:
 #
 # 2. Change these variables for your configuration:
 env:
-  AZURE_FUNCTIONAPP_NAME: burnsy123 # set this to your application's name
+  AZURE_FUNCTIONAPP_NAME: burnsy123-linux-function-app  # set this to your application's name
   AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'   # set this to the path to your web app project, defaults to the repository root
   PYTHON_VERSION: '3.7'                 # set this to the python version to use (supports 3.6, 3.7, 3.8)
 
