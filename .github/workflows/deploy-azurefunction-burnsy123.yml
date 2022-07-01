@@ -48,7 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'Staging'
+      name: 'Development'
       url: ${{ steps.deploy-to-function.outputs.webapp-url }}
 
     steps:
@@ -63,8 +63,9 @@ jobs:
         id: deploy-to-function
         with:
           app-name: 'burnsy123-linux-function-app'
-          slot-name: 'staging'
+          slot-name: 'production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
           publish-profile: ${{ secrets.AZURE_CREDENTIALS }}
           scm-do-build-during-deployment: true
+          
           enable-oryx-build: true
