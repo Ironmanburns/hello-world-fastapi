@@ -42,12 +42,10 @@ jobs:
         pip install -r requirements.txt --target=".python_packages/lib/site-packages"
         popd
 
-deploy-to-review:
-    - name: 'Deploy Review Instance'
+  deploy-to-review:
     if: github.event.name == 'pull_request'
-    runs-on: ubuntu-latest
-    environment:
-      name: 'review-lab'
+    runs-on: ubuntu-latest  
+    environment: 'Development'
     needs: build
     steps:
       - name : 'Run Azure Functions Deploy'
