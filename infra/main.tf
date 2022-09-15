@@ -1,4 +1,0 @@
-terraform {
-    azurerm
-    provider
-}
