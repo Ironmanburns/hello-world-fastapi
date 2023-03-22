@@ -4,6 +4,10 @@ import azure.functions as func
 
 app = FastAPI()
 
+@app.get("/test/")
+def my_test():
+    return {"bob":"test"}
+
 @app.get("/")
 def read_root():
     return {"hello":"world"}
